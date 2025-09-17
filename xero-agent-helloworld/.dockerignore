@@ -1,0 +1,15 @@
+# Ignore local virtual environments
+.venv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Git
+.git
+.gitignore
+
+# OS junk
+.DS_Store
+Thumbs.db

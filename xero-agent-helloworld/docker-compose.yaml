@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  xero-uv-demo:
+    build: .
+    container_name: xero-uv-demo
+    environment:
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+      XERO_CLIENT_ID: "${XERO_CLIENT_ID}"
+      XERO_CLIENT_SECRET: "${XERO_CLIENT_SECRET}"
+    stdin_open: true   # allow interactive input
+    tty: true          # allocate a terminal
