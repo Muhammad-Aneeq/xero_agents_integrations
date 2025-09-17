@@ -1,6 +1,6 @@
 # OpenAI Agents SDK + Xero MCP Integration
 
-This project demonstrates how to integrate the **OpenAI Agents SDK** with the **Xero MCP (Model Context Protocol)** to interact with Xero’s accounting data programmatically.
+This project demonstrates how to integrate the **OpenAI Agents SDK** with the **Xero MCP (Model Context Protocol)** to interact with Xero’s accounting data programmatically.It is fully **Dockerized** for easier setup and usage.
 
 ---
 
@@ -10,7 +10,8 @@ This project demonstrates how to integrate the **OpenAI Agents SDK** with the **
 - [OpenAI API Key](https://platform.openai.com/)
 - [Xero Free Trial Account](https://www.xero.com/signup/)
 - [Xero Developer Account](https://developer.xero.com/)
-
+- Docker installed ([Get Docker](https://docs.docker.com/get-docker/))  
+- Docker Compose installed ([Get Docker Compose](https://docs.docker.com/compose/install/))  
 ---
 
 ## 📝 Setup Instructions
@@ -66,3 +67,17 @@ Your app is now authorized ✅
 XERO_CLIENT_ID=your-xero-client-id
 XERO_CLIENT_SECRET=your-xero-client-secret
 OPENAI_API_KEY=your-openai-api-key
+```
+
+# Build Docker image
+docker build -t xero-uv-demo .
+
+# Run Docker container interactively
+docker run --rm -it \
+  -e OPENAI_API_KEY=your-openai-api-key \
+  -e XERO_CLIENT_ID=your-xero-client-id \
+  -e XERO_CLIENT_SECRET=your-xero-client-secret \
+  xero-uv-demo
+
+# OR: Build and run using Docker Compose
+docker compose run --rm -it xero-uv-demo
