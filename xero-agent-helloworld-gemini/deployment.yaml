@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xero-uv-demo-gemini
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xero-uv-demo-gemini
+  template:
+    metadata:
+      labels:
+        app: xero-uv-demo-gemini
+    spec:
+      containers:
+        - name: xero-uv-demo-gemini
+          image: aneeqkhatri/xero-uv-demo-gemini:latest
+          imagePullPolicy: Always
+          env:
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: xero-secrets-gemini
+                  key: gemini_api_key
+            - name: XERO_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: xero-secrets-gemini
+                  key: xero_client_id
+            - name: XERO_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: xero-secrets-gemini
+                  key: xero_client_secret

@@ -114,7 +114,8 @@ async def demo_multi_agent_workflow(mcp_server: MCPServer):
         print("\n🔄 Step 2: Find the customer we just created")
         result2 = await Runner.run(
             starting_agent=contact_agent,
-            input="Find a customer named 'Demo Corp'"
+            input="Find a customer named 'Demo Corp'",
+            run_config=config
         )
         print(f"✅ Contact Agent: {result2.final_output}")
         
